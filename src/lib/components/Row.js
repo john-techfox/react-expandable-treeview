@@ -116,7 +116,7 @@ export default class Row extends React.Component {
             return (
                 <Square
                     expandButtonColor={expandButtonColor}
-                    onClick={() => onNodeClick(element.id)}>
+                    onClick={() => onNodeClick(element)}>
                     {isExpanded ? '-' : '+'}
                 </Square>
             );

@@ -23,14 +23,14 @@ class TreeView extends React.Component {
         this.handleNodeClick = this.handleNodeClick.bind(this);
     }
 
-    handleNodeClick(element, id) {
+    handleNodeClick(element) {
         const { expandedElements } = this.state;
         const { onNodeClick } = this.props
 
-        if (!expandedElements.has(id)) {
-            expandedElements.add(id);
+        if (!expandedElements.has(element.id)) {
+            expandedElements.add(element.id);
         } else {
-            expandedElements.delete(id);
+            expandedElements.delete(element.id);
         }
 
         this.setState({
@@ -61,7 +61,7 @@ class TreeView extends React.Component {
                         isLastParent={i === data.length - 1}
                         isExpanded={expandedElements.has(element.id)}
                         expandedElements={this.state.expandedElements}
-                        onNodeClick={(id) => this.handleNodeClick(element, id)}
+                        onNodeClick={this.handleNodeClick}
                         renderNode={renderNode}
                         lineColor={lineColor}
                         lineWidth={lineWidth}
